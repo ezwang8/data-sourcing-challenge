@@ -23,6 +23,7 @@ The program is tasked to allow the NOAA Space Weather Prediction Center to predi
    ```
 
 4. **Install necessary Packages:**
+
    Install pandas for data manipulation and analysis:
    ```bash
    pip install pandas
@@ -38,18 +39,18 @@ The program is tasked to allow the NOAA Space Weather Prediction Center to predi
    pip install python-dotenv
    ```
 
-5. **Navigate to the Project Directory:**
+6. **Navigate to the Project Directory:**
    ```bash
    cd athletic_sales_analysis
    ```
 
-6. **Launch Jupyter Notebook:**
+7. **Launch Jupyter Notebook:**
    Open the notebook interface:
    ```bash
    jupyter notebook
    ```
 
-7. **Open the Notebook:**
+8. **Open the Notebook:**
    In Jupyter, locate the `retrieve_data.ipynb` file and run the cells for analysis.
 
 ## File Roles
