@@ -22,10 +22,20 @@ The program is tasked to allow the NOAA Space Weather Prediction Center to predi
    pip install jupyter
    ```
 
-4. **Install pandas Package:**
-   Install pandas with:
+4. **Install necessary Packages:**
+   Install pandas for data manipulation and analysis:
    ```bash
    pip install pandas
+   ```
+
+   Install requests for making API calls to NASA's API:
+   ```bash
+   pip install requests
+   ```
+
+   Install python-dotenv for loading environment variables (the API key) from a .env file:
+   ```bash
+   pip install python-dotenv
    ```
 
 5. **Navigate to the Project Directory:**
