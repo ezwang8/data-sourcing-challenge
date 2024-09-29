@@ -75,13 +75,6 @@ The program is tasked to allow the NOAA Space Weather Prediction Center to predi
 6. **Export Cleaned Data:**
    - Export the cleaned and merged dataset to a CSV file, without the DataFrame's index, for future analysis.
 
-## Summary of Findings
-This analysis revealed the following key insights in the athletic clothing market:
-- The time difference between the detection of a CME and the occurrence of a GST is around 2-3 days.
-- 
-- West Gear, Food Locker, and Kohl's were leading the market for women's athletic footwear, with significant sale numbers compared to the other competitors.
-- Day-of-week trends showed higher sales during weekends. Weekly trends showed seasonal peaks during major sports events, especially during Mid-December and Mid-July.
-
 ## Summary
 - The statistics created from the timeDiff column has found that the average time difference between the detection of a CME and the onset of a GST is around 2-3 days.
 - With this information, NASA and the Space Weather Prediction Center will now have a clearer idea on predicting upcoming storms that would impact their satellite and power grid systems.
