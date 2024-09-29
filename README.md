@@ -53,6 +53,10 @@ The program is tasked to allow the NOAA Space Weather Prediction Center to predi
 8. **Open the Notebook:**
    In Jupyter, locate the `retrieve_data.ipynb` file and run the cells for analysis.
 
+## File Roles
+- **retrieve_data.ipynb:** The main script that performs the analysis. It retrieves, processes, and analyzes CME and GST data from NASA's API.
+- **.env:** The file that contains the NASA API key, which is required for accessing the API securely.
+
 ## Steps
 1. **Request CME Data:**
    - Use NASA's DONKI API to request Coronal Mass Ejection (CME) data. 
