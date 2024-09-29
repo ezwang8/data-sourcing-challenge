@@ -1,7 +1,7 @@
 # Data Sourcing Challenge
 
 ## Project Overview
-The program is tasked to allow the NOAA Space Weather Prediction Center to predict the occurrence of a Geomagnetic Storms (GSTs). To achieve this, users must extract data from NASA's API, specify the data related to CME and GST, and then merge and clean the data for the most optimal predictive models.
+The program is tasked to allow the NOAA Space Weather Prediction Center to predict the occurrence of a Geomagnetic Storms (GSTs) that are caused by Coronal Mass Ejections (CMEs). To achieve this, users must extract data from NASA's API, specify the data related to CME and GST, and then merge and clean the data for the most optimal predictive models.
 
 ## Installation Instructions
 1. **Clone the Repository:**
@@ -53,18 +53,35 @@ The program is tasked to allow the NOAA Space Weather Prediction Center to predi
 8. **Open the Notebook:**
    In Jupyter, locate the `retrieve_data.ipynb` file and run the cells for analysis.
 
-## File Roles
-- **athletic_sales_analysis.ipynb:** The main script that performs the analysis. It contains the full data analysis process for exploration, transformation, and validation of the dataset.
-- **athletic_sales_2020.csv & athletic_sales_2021.csv:** The CSV files, inside the "Resources" folder, which are the data sources used for analysis. Each are separated data based on their designated years, and both share sales data separated into columns. Including various product categories, sales information, and regional data.
-
 ## Steps
-1. **Combine and Clean the Data:** Merge the two sales data from 2020 and 2021, then check to ensure the data tyes and formats are cleaned and consistent.
-2. **Analyze Regional Sales:** Determine which regions are successful in athletic clothing sales by finding which sold the most products and made the most sales.
-3. **Identify Top Retailers:** Find the top retailers by checking which had the highest total sales, then narrowing the search to which sold the most women's athletic footwear.
-4. **Sales Trends by Day and Week:** Adjust the focus to invoice date to determine which days and weeks had the the highest sales of women's athletic footwear.
+1. **Request CME Data:**
+   - Use NASA's DONKI API to request Coronal Mass Ejection (CME) data. 
+   - Keep the essential columns (`activityID`, `startTime`, and `linkedEvents`). Remove the rows without any `linkedEvents` since those sections aren't related to GSTs.
+
+2. **Request GST Data:**
+   - Use NASA API to request Geomagnetic Storm (GST) data.
+   - Keep the essential columns (`activityID`, `startTime`, and `linkedEvents`). Clean the data by exploding the `linkedEvents` field, so every entry is related to a GST event.
+
+3. **Merge and Clean the Data:**
+   - Merge the two datasets (CME and GST) on the columns (`gstID`, `CME_ActivityID`, `GST_ActivityID`, and `cmeID`).
+   - Check the make sure the merged dataset's rows match between both DataFrames. Drop any unnecessary columns or null values.
+
+4. **Calculate Time Difference:**
+   - Create a new column called `timeDiff` to compare the start times of the CME and the GST.
+
+5. **Descriptive Statistics:**
+   - Use the `describe()` function to create key statistics for the `timeDiff` column. The statistics help us check how long it takes for a CME to turn into a GST event.
+
+6. **Export Cleaned Data:**
+   - Export the cleaned and merged dataset to a CSV file, without the DataFrame's index, for future analysis.
 
 ## Summary of Findings
 This analysis revealed the following key insights in the athletic clothing market:
-- The top-selling region were primarily in metropolitan areas. Including New York, San Francisco, and Miami.
+- The time difference between the detection of a CME and the occurrence of a GST is around 2-3 days.
+- 
 - West Gear, Food Locker, and Kohl's were leading the market for women's athletic footwear, with significant sale numbers compared to the other competitors.
 - Day-of-week trends showed higher sales during weekends. Weekly trends showed seasonal peaks during major sports events, especially during Mid-December and Mid-July.
+
+## Summary
+- The statistics created from the timeDiff column has found that the average time difference between the detection of a CME and the onset of a GST is around 2-3 days.
+- With this information, NASA and the Space Weather Prediction Center will now have a clearer idea on predicting upcoming storms that would impact their satellite and power grid systems.
